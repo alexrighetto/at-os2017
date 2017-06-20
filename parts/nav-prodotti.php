@@ -9,7 +9,9 @@ if(function_exists('atos_get_cat') && !isset($atos_linea) ){
 }
 
 ?>
-<ul class="nav nav-pills pull-right">
-	<li><a href="#caratteristiche"><?php _e('Features', 'at-os'); ?></a></li>
+<div class="sub_menu_products">
+<ul class='menu-orizontal'>
+   	<li><a href="#caratteristiche"><?php _e('Features', 'at-os'); ?></a></li>
     <li><a href="<?php echo add_query_arg( 'l', $atos_linea['id'], get_permalink( translated_id (  947 ) ) ); ?>"><?php _e('Download', 'at-os'); ?></a></li>
-</ul>
+	</ul>
+</div>

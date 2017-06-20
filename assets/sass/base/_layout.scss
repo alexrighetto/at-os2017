@@ -23,7 +23,7 @@
 		
 	}
 	
-	
+	.home{}
 	
 	.site-header {
 		padding-top: 0;
@@ -84,27 +84,116 @@
 	
 		}
 	}
-	#scheda-dettagli{
+	
+	
+		
+	
+}
+
+	.product_info{
 		@include clearfix;
+		padding-bottom:ms(2);
+	}
+	
+	.breadcrumbs{
+		
+		@include span(8 of 12);
+		.breadcrumbs-cat ,
+		.breadcrumbs-label{
+			padding-top:ms(1);
+			float:left
+		}
+	
+	}
+	
+	.sub_menu_products{
+		margin:0;
+		@include span( last 4 of 12);
+		.menu-orizontal{
+			float:right;
+			li{
+				list-style-type:none;
+				float:left;
+				
+				a{
+					float:left;
+					padding:ms(1);
+				}
+			}
+		}
+	}
+	
+	
+	
+		#scheda-prodotto{
+			
+		}
+		
+	.menu-product{
+		
+		@include span(3 of 12);
+	}
+		
+	#scheda-dettagli{
+		@include span(last 9 of 12);
+		padding-bottom:ms(2);
 	}
 	
 	#img-prodotto{
-		display: block;
-		@include span(4 of 12);
+		
+		@include span(5 of 12);
 		
 	}
-	#carosello-prodotti-wrap{
-		display: block;
-		@include span(2 of 12);
 		
-	}
 	#dati-prodotto{
-		display: block;
-		@include span(last 6 of 12);
+		
+		@include span(last 7 of 12);
+		
+		#misure-small{
+			@include span( 8 of 12);
+		}
+		
+		.brochure-download{
+			@include span( last 4 of 12);
+		}
+		
+	}
+			
+	
+		
+	#carosello-prodotti-wrap{
+		
+		@include clearfix;
+		margin-bottom:ms(3);
+		padding: 0 ms(2);
+	}
+
+	.panel{
+		 @include gallery(4 of 12);
+		min-height: ms(10);
+
+		
 		
 	}
 	
 }
+	
+#carosello-modelli{
+		.product img {
+			
+			max-height:150px;
+			width:auto;
+			vertical-align: baseline;
+		}
+	}
+
+.accessori_list img{
+	max-height:150px;
+			width:auto;
+			vertical-align: baseline;
+}
+
+
 
 @include susy-media (max-width $container-width) {
 
@@ -112,22 +201,32 @@
 
 @include susy-media (max-width $handheld) {
 	
-	
+	#img-prodotto{
+		 img {
+			text-align: center;
+			 margin-left:auto;
+			 margin-right:auto;
+			
+			width:auto;
+			vertical-align: baseline;
+		}
+	}
+	#dati-prodotto{
+		h1{
+			text-align:center;
+		}
+	}
 	
 	#img-prodotto{
 		display: block;
-		@include span(4 of 12);
+		
 		
 	}
-	#carosello-prodotti-wrap{
-		display: block;
-		@include span(2 of 12);
-		
-	}
+	
 	#dati-prodotto{
 		display: block;
-		@include span(last 6 of 12);
+		
 		
 	}
 
-	}}
+	}

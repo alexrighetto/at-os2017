@@ -21,7 +21,25 @@ html,
 body{
 	
 	background-color: #e2e2e2;
+	
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+	font-weight: 500;
+	margin: 0 0 ms(-3);
+	color: darken( $color_body, 20% );
+
+	a {
+		font-weight: 500;
+	}
+}
+
 
 .site{
 
@@ -37,12 +55,12 @@ box-shadow: 0px 0px 4px 0px rgba(50, 51, 52, 0.22);
 }
 
 #scheda-dettagli{border-bottom: 1px solid #EEEEEE; border-top: 1px solid #EEEEEE;}
-#img-prodotto, #carosello-prodotti-wrap, #dati-prodotto{float:left; position:relative; display:block; min-height:450px}
 
 
 
 
-#carosello-prodotti-wrap{width:100px; border-right:1px solid #EEEEEE;  border-left:1px solid #EEEEEE}
+#carosello-prodotti-wrap{border-bottom: 1px solid #eee}
+
 
 .carosello-prodotti ul{margin:0; padding:37px 0 }
 .carosello-prodotti li{list-style-type:none}
@@ -53,279 +71,11 @@ box-shadow: 0px 0px 4px 0px rgba(50, 51, 52, 0.22);
 
 
 
-.jcarousel-control-prev.vertical{top:11px; left:50%; margin-left:-16px}
-.jcarousel-control-next.vertical{bottom:0; top:auto; left:50%; margin-left:-16px}
-
-/*
-This is the visible area of you carousel.
-Set a width here to define how much items are visible.
-The width can be either fixed in px or flexible in %.
-Position must be relative!
-*/
-.jcarousel {
-    position: relative;
-    overflow: hidden;
-}
-
-/*
-This is the container of the carousel items.
-You must ensure that the position is relative or absolute and
-that the width is big enough to contain all items.
-*/
-#correlati .jcarousel .jlist {
-    width: 20000em;
-    position: relative;
-
-    /* Optional, required in this case since it's a <ul> element */
-   
-    margin: 0 ;
-    padding: 0;
-	
-}
-
-#correlati .jlist ul {
-       bottom: 0;
-    display: table-cell;
-    list-style: none outside none;
-    margin: 0 30px;
-    padding: 0 38px;
-    position: relative;
-    vertical-align: bottom;
-	
-}
-
-
-#correlati .jcarousel{
-background: #f2f2f2; /* Old browsers */
-
-/* IE9 SVG, needs conditional override of 'filter' to 'none' */
-
-background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YyZjJmMiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
-
-background: -moz-linear-gradient(top,  #f2f2f2 0%, #ffffff 4%, #ffffff 100%); /* FF3.6+ */
-
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2f2f2), color-stop(4%,#ffffff), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
-
-background: -webkit-linear-gradient(top,  #f2f2f2 0%,#ffffff 4%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
-
-background: -o-linear-gradient(top,  #f2f2f2 0%,#ffffff 4%,#ffffff 100%); /* Opera 11.10+ */
-
-background: -ms-linear-gradient(top,  #f2f2f2 0%,#ffffff 4%,#ffffff 100%); /* IE10+ */
-
-background: linear-gradient(to bottom,  #f2f2f2 0%,#ffffff 4%,#ffffff 100%); /* W3C */
-
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', endColorstr='#ffffff',GradientType=0 ); /* IE6-8 */
-
-
-}
-
-
-/** Carousel Controls **/
-
-.jcarousel-control-prev,
-.jcarousel-control-next {
-    position: absolute;
-    top: 50%;
-    margin-top: -15px;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-   
-    color: #aaa;
-    text-decoration: none;
-    
-    font: 24px/27px Arial, sans-serif;
-    
-	z-index:9999
-}
-
-.jcarousel-control-prev {
-    left: 15px;
-}
-
-.jcarousel-control-next {
-    right: 15px;
-}
-
-/** Carousel Pagination **/
-
-.jcarousel-pagination {
-    position: absolute;
-    bottom: -40px;
-    left: 50%;
-    -webkit-transform: translate(-50%, 0);
-    -ms-transform: translate(-50%, 0);
-    transform: translate(-50%, 0);
-    margin: 0;
-}
-
-.jcarousel-pagination a {
-    text-decoration: none;
-    display: inline-block;
-
-    font-size: 11px;
-    height: 10px;
-    width: 10px;
-    line-height: 10px;
-
-    background: #fff;
-    color: #4E443C;
-    border-radius: 10px;
-    text-indent: -9999px;
-
-    margin-right: 7px;
-
-
-    -webkit-box-shadow: 0 0 2px #4E443C;
-    -moz-box-shadow: 0 0 2px #4E443C;
-    box-shadow: 0 0 2px #4E443C;
-}
-
-.jcarousel-pagination a.active {
-    background: #4E443C;
-    color: #fff;
-    opacity: 1;
-
-    -webkit-box-shadow: 0 0 2px #F0EFE7;
-    -moz-box-shadow: 0 0 2px #F0EFE7;
-    box-shadow: 0 0 2px #F0EFE7;
-}
 
 
 
-.jcarousel-wrapper {
-
-    position: relative;
-
-}
 
 
-/** Carousel **/
-
-#correlati .jcarousel {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-	padding-top:10px; padding-bottom:0px;}
-
-
-
-#correlati .jcarousel.orizontal li {
-    width: 200px;
-    float: left;
-    
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-#correlati .jcarousel img {
-    display: block;
-    height: auto !important;
-    margin: 0 auto;
-    max-width: 100%;
-    text-align: center;
-}
-
-
-
-		#correlati.jcarousel li a:link, #correlati .jcarousel li a:visited {
-    color: #7F7F7F;
-    display: block;
-    font-size: 11px;
-    height: 150px;
-    text-decoration: none;
-    width: 140px;
-}
-	/*
-This is the visible area of you carousel.
-Set a width here to define how much items are visible.
-The width can be either fixed in px or flexible in %.
-Position must be relative!
-*/
-#correlati .jcarousel {
-    position: relative;
-    overflow: hidden;
-	border-top:1px solid #eee;
-	border-bottom: 1px solid #1F5DA6;
-}
-
-/*
-This is the container of the carousel items.
-You must ensure that the position is relative or absolute and
-that the width is big enough to contain all items.
-*/
-.jcarousel.orizontal ul {
-    width: 20000em;
-    position: relative;
-
-    /* Optional, required in this case since it's a <ul> element */
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-
-.jlist.lavastrumenti ul{
-	 width: auto;
-}
-/*
-These are the item elements. jCarousel works best, if the items
-have a fixed width and height (but it's not required).
-*/
-.jcarousel.orizontal li {
-    /* Required only for block elements like <li>'s */
-    float: left;
-}
-	#navigation{}	
-.jcarousel-wrapper	#navigation, .jcarousel-wrapper #navigation li{margin:0; padding:0; list-style-type:none}
-	
-	
-	#navigation-wrap{
-float:right;
-position:relative;
-left:-50%;
-text-align:left;
-}
-#navigation-wrap ul{
-list-style:none;
-position:relative;
-left:50%;
-} 
-#navigation-wrap li{float:left;position:relative;}/* ie needs position:relative here*/
-
-#navigation-wrap a{
-text-decoration:none;
-margin: 0 10px;
-
-float:left;
-
-padding:2px 5px;
-text-align:center;
-white-space:nowrap;
-
-}
-.jcarousel-wrapper #navigation-wrap a:hover{ color:red;}
-#content{overflow:hidden}/* hide horizontal scrollbar*/
-
-.jcarousel-wrapper #navigation > li > a, .jcarousel-wrapper #navigation li.current-menu-ancestor a {
-    height: 50px;
-    line-height: 50px;
-}
-#navigation-wrap li{border-top: 3px solid #fff}
-#navigation-wrap li.active{
-
-border-top: 3px solid #333;
-
-
-}
-
-.jcarousel li a:hover{
-    color: #333;
-
-}
-#nav-prodotto{padding-left:0; margin:0}
-#nav-prodotto li, #nav-prodotto a{float:left; display:block; padding:2px; font-size:11px}
 
 /* these styles are for the demo, but are not required for the plugin */
 		.zoom {
@@ -351,45 +101,8 @@ border-top: 3px solid #333;
 
 		.zoom img::selection { background-color: transparent; }
 
-.jcarousel.vertical{ height: 500px;}
-
-#img-prodotto .wp-post-image{position:absolute; bottom:0}
 
 
-
-.jcarousel-vertical {
-    position: relative;
-    overflow: hidden;
-    width: 75px;
-    height: 385px;
-   
-}
-
-.jcarousel-vertical ul {
-    width: 100%;
-    height: 20000em;
-    position: relative;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.jcarousel-vertical li,  .jcarousel-vertical li a{
-	display:block;
-    min-height: 119px;
-    position:relative;
-    padding: 0;
-}
-.jcarousel-vertical li a .label{
-	bottom: 102px;
-    position: absolute;
-    right: 7px;
-    z-index: 2;
-}
-.jcarousel-vertical li{margin: 0 0 10px 0;}
-
-#carosello-modelli{margin-top:30px;     margin-left: auto;
-    margin-right: auto;}
 #scheda-acessori{border-top: 1px solid #1F5DA6; background: url("img/productheader_bg.png") no-repeat scroll 50% 100% rgba(0, 0, 0, 0); position:relative; padding: 20px 0;}
 #scheda-acessori ul li{list-style-type: none}
 
@@ -427,3 +140,44 @@ button.menu-toggle{
 	margin-bottom: ms(5);
 }
 .home .site-content{margin-top: ms(5);}
+
+.home.blog,
+.home.page:not(.page-template-template-homepage),
+.home.post-type-archive-product {
+	.site-header, .site-header {
+		margin-bottom: 0;
+	}
+}
+
+
+.site-header + .metaslider
+{margin-bottom:ms(5) !important}
+
+.section.shadow_section
+{
+	
+	background: url(img/productheader_bg.png) no-repeat scroll 50% 100% transparent;
+}
+
+.section{padding-top: ms(2); padding-bottom: ms(2); margin-top:ms(2); margin-bottom:ms(2)}
+
+
+
+
+.brochure-download .item-download img{
+	display:block;
+	border:10px solid #f8f8f8;
+	margin: 0;
+}
+
+.panel{
+	padding:ms(0);
+	background:#f8f8f8;
+	li{
+		list-style-type:none;
+	}
+
+}
+.icon-features{
+	float:left;
+}

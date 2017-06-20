@@ -56,7 +56,7 @@ function atos_product_breadcrumbs ($post_id){
 	$atos_modello = atos_get_cat($post_id, 'modello');
 	$atos_versione = atos_get_cat($post_id, 'versione');
 	?>
-<div class="breadcrumbs-cat">
+<div class="breadcrumbs-cat"><p>	
   <?php 
         echo $atos_categoria['name'] . ' / ' ;
         echo $atos_linea['name'] ;
@@ -66,7 +66,7 @@ function atos_product_breadcrumbs ($post_id){
 		}elseif ($atos_categoria['id'] == translated_id(37, 'categoria')){
 		echo  ' / '. '<b><span class="label label-warning">' . $atos_versione['name'] . '</span></b>';	
 			}
-        ?>
+	?></p>
 </div>
 <?php
 	
@@ -460,7 +460,7 @@ function atos_get_caratterisitche ($post_id) {
 				if ( $caratteristiche->have_posts() ) {
 						
 				?>
-                <h5> <?php echo __('High Tech Features', 'at-os') . ' '. $cat[0]['name'] . ' ' . __('(Where available)', 'at-os'); ?> : </h5>
+                <h3> <?php echo __('High Tech Features', 'at-os') . ' '. $cat[0]['name'] . ' ' . __('(Where available)', 'at-os'); ?> : </h3>
                 <div class="panel-group" id="accordion"> 
                 <?php		
 						
@@ -470,13 +470,11 @@ function atos_get_caratterisitche ($post_id) {
                         
                          <div class="panel panel-default">
                             <div class="panel-heading clearfix">
-                            <?php $ico = rwmb_meta( 'axl_atos_icona_caratteristiche',  'type=image');
                             
-								foreach ( $ico as $image )
-								{
-								echo "<img style='width:40px;height:40px; float:left;' src='{$image['url']}' alt='{$image['alt']}' />";
-								}						    
-								?>
+                            
+                             
+                             <div class="tip-img"> <?php echo get_the_post_thumbnail($caratteristiche->ID, 'full') ; ?></div>
+                             
                               <h4 class="panel-title">
                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo translated_id( get_the_ID(), 'caratteristiche');?>">
                                    <?php the_title() ?>
@@ -485,17 +483,20 @@ function atos_get_caratterisitche ($post_id) {
                             </div>
                             <div id="collapse<?php echo get_the_ID();?>" class="panel-collapse collapse">
                               <div class="panel-body">
+                               <?php $ico = rwmb_meta( 'axl_atos_icona_caratteristiche',  'type=image');
+                            
+								foreach ( $ico as $image )
+								{
+								echo "<img class='icon-features' src='{$image['url']}' alt='{$image['alt']}' />";
+								}						    
+							?>
                                 <?php the_content() ?>
-                                <?php edit_post_link( 'modifica', '', '', $caratteristiche->ID ); ?>
-                                <div class="tip-img">
+                               
+                                
                             
-                            	<?php
-								
-								echo get_the_post_thumbnail($caratteristiche->ID, 'thumbnail') ;
-								?>
-                            
-                            </div>
-                              </div>
+                               <?php edit_post_link( 'modifica', '', '', $caratteristiche->ID ); ?>
+                                
+                                    </div>
                             </div>
                           </div>
                       

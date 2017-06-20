@@ -26,7 +26,9 @@ module.exports = function( grunt ) {
 					'assets/sass/woocommerce/extensions/*.css',
 					'assets/sass/woocommerce/woocommerce.css',
 					'assets/sass/jetpack/jetpack.css',
-					'assets/sass/base/*.css'
+					'assets/sass/base/*.css',
+					 'assets/sass/ubermenu/*.css',
+					'assets/sass/owl/*.css'
 				]
 			}
 		},
@@ -133,7 +135,11 @@ module.exports = function( grunt ) {
 					'assets/sass/woocommerce/extensions/quick-view.css': 'assets/sass/woocommerce/extensions/quick-view.scss',
 					'assets/sass/woocommerce/woocommerce.css': 'assets/sass/woocommerce/woocommerce.scss',
 					'assets/sass/jetpack/jetpack.css': 'assets/sass/jetpack/jetpack.scss',
-					'assets/sass/base/icons.css': 'assets/sass/base/icons.scss'
+					'assets/sass/base/icons.css': 'assets/sass/base/icons.scss',
+					'assets/sass/owl/owl.carousel.css': 'assets/sass/owl/owl.carousel.scss',
+					'assets/sass/owl/owl.theme.default.css': 'assets/sass/owl/owl.theme.default.scss',
+					'assets/sass/owl/owl.theme.at-os.css': 'owl.theme.at-os.scss',
+					 'assets/sass/ubermenu/ubermenu.css': 'assets/sass/ubermenu/ubermenu.scss'
 				}]
 			}
 		},
@@ -179,6 +185,13 @@ module.exports = function( grunt ) {
 				src: ['*.css'],
 				dest: 'assets/sass/woocommerce/',
 				ext: '.css'
+			},
+			owl: {
+				expand: true,
+				cwd: 'assets/sass/owl/',
+				src: ['*.css'],
+				dest: 'assets/sass/owl/',
+				ext: '.css'
 			}
 		},
 
@@ -193,7 +206,9 @@ module.exports = function( grunt ) {
 					'assets/sass/base/*.scss',
 					'assets/sass/components/*.scss',
 					'assets/sass/utils/*.scss',
-					'assets/sass/vendors/*.scss'
+					'assets/sass/vendors/*.scss',
+					'assets/sass/owl/*.scss',
+					'assets/sass/ubermenu/*.scss',
 				],
 				tasks: [
 					'sass',
@@ -340,6 +355,7 @@ module.exports = function( grunt ) {
 					'assets/sass/woocommerce/extensions/quick-view.css',
 					'assets/sass/woocommerce/woocommerce.css',
 					'assets/sass/admin/welcome-screen/welcome.css',
+					'assets/sass/ubermenu/ubermenu.css',
 					'assets/sass/jetpack/jetpack.css'
 				]
 			}

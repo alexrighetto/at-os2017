@@ -8,42 +8,51 @@ Description: This part is optional, but helpful for describing the Post Template
 
 
 <?php get_header('single-product'); ?>
+
+
 <div id="content">
 
-<?php 
-	
-	the_post(); 
-	$post_id = translated_id ( get_the_id() );
-	
-	$temp_post = $post;
+	<?php 
 
-	if(function_exists('atos_get_cat')){
-		
-		$atos_categoria = atos_get_cat($post_id);
-		$atos_linea = atos_get_cat($post_id, 'linea');
-		$atos_modello = atos_get_cat($post_id, 'modello');
-		$atos_versione = atos_get_cat($post_id, 'versione');
-	
-	}
-?>
+		the_post(); 
+		$post_id = translated_id ( get_the_id() );
+
+		$temp_post = $post;
+
+		if(function_exists('atos_get_cat')){
+
+			$atos_categoria = atos_get_cat($post_id);
+			$atos_linea = atos_get_cat($post_id, 'linea');
+			$atos_modello = atos_get_cat($post_id, 'modello');
+			$atos_versione = atos_get_cat($post_id, 'versione');
+
+		}
+	?>
+
 
 	<div id="scheda-prodotto">
-		<div class="breadcrumbs clearfix"><?php  atos_product_breadcrumbs($post_id); ?>
+	
+		<footer class="product_info">
+	
+			<div class="breadcrumbs">
+				<?php  atos_product_breadcrumbs($post_id); ?>
+        	</div>
+        	<?php get_template_part( 'parts/nav', 'prodotti' ); ?>
         
-            <?php get_template_part( 'parts/nav', 'prodotti' ); ?>
-        
-        </div>
-        
-        
-
-        
-    <div id="scheda-dettagli" class="clearfix">
-    	
-        <div id="img-prodotto" class="zoom">
-   			<?php if(function_exists('immagine_carosello')) echo immagine_carosello($post_id, array(379, 450) );?>
+		</footer>   
+		
+		<div class='menu-product'>
+			<?php bellows( 'main' , array( 'theme_location' => 'product-menu' ) ); ?>
 		</div>
-        
-        <div id="carosello-prodotti-wrap">
+	
+   
+   
+  
+    <div id="scheda-dettagli">
+    
+     <!--
+    
+          <div id="carosello-prodotti-wrap">
             	
              <?php
 			 
@@ -92,31 +101,31 @@ Description: This part is optional, but helpful for describing the Post Template
 		
 			
            
-                <a href="#" class="jcarousel-control-prev vertical"><i class="fa fa-angle-up"></i></a>
                 
                 
-            	<div class="jcarousel jcarousel-vertical" id="carosello-modelli">
-            	   <ul>
+                
+            	<div id="carosello-modelli">
+            	   <div class="owl-carousel owl-theme"  >
                    
                    <?php while ( $serie->have_posts() ) : $serie->the_post(); ?>
                    
                    		
-				<li class="<?php if ($post_id === translated_id( get_the_ID())){echo 'active';} ?>">
-                
-                	<a class="product " data-container="body" rel="tooltip" data-toggle="tooltip" title="<?php echo get_the_title(); ?>" data-postid="<?php echo get_the_ID() ?>"  href="<?php echo  get_permalink( translated_id ( get_the_ID() ) ); ?>">
-                    
-				<?php if(function_exists('immagine_carosello')) echo immagine_carosello(get_the_ID(), array(80, 200) );?>
-                	</a>
-                </li>
+						<div class=" <?php if ($post_id === translated_id( get_the_ID())){echo 'active';} ?>">
+
+							<a class="product " data-container="body" rel="tooltip" data-toggle="tooltip" title="<?php echo get_the_title(); ?>" data-postid="<?php echo get_the_ID() ?>"  href="<?php echo  get_permalink( translated_id ( get_the_ID() ) ); ?>">
+
+						<?php if(function_exists('immagine_carosello')) echo immagine_carosello(get_the_ID(), array(100, 240) );?>
+							</a>
+						</div>
                 
                        
                         
                     
 					<?php endwhile; ?>   
-                    </ul>
+                    </div>
                 </div>   
                 
-                <a href="#" class="jcarousel-control-next vertical"><i class="fa fa-angle-down"></i></a> 
+               
                 
                 <?php
 				wp_reset_postdata();
@@ -128,9 +137,22 @@ Description: This part is optional, but helpful for describing the Post Template
 				 ?>
                 
             </div>
+            
+            
+            
+            
+            -->
+            
+
+    	
+        <div id="img-prodotto" class="zoom">
+   			<?php if(function_exists('immagine_carosello')) echo immagine_carosello($post_id, array(379, 450) );?>
+		</div>
+        
+  
         	
             <div id="dati-prodotto">
-            	<h5><?php the_title(); ?></h5>
+            	<h1><?php the_title(); ?></h1>
                 
                 <div id="desc-prodotto">
                 	<h5><?php echo __('Description', 'at-os'); ?></h5>
@@ -174,8 +196,9 @@ Description: This part is optional, but helpful for describing the Post Template
 						</tr>
                     </table>
                 </div>
-                <div class="clearfix"></div>
-                <div class="brochure-download clearfix">
+               
+				
+                <div class="brochure-download">
                 <?php 
 					$axl_at_os_brochure_args = array(
 													'post_type' => 'documentazione',
@@ -205,8 +228,8 @@ Description: This part is optional, but helpful for describing the Post Template
 							
 						if( rwmb_meta( 'axl_atos_inpage', 'type=checkbox' )){
 							?> <div class="item-download">
-                            <h6><?php the_title(); ?></h6><?php
-							echo "<a href='{$info['url']}' title='{$info['title']}' target='_blank'>" . get_the_post_thumbnail( get_the_id() , array(100, 100)) ."</a>";
+                            <h5><?php the_title(); ?></h5><?php
+							echo "<a href='{$info['url']}' title='{$info['title']}' target='_blank'>" . get_the_post_thumbnail( get_the_id() , array(200, 200)) ."</a>";
 						?>   </div><?php
 						}
 						
@@ -219,19 +242,20 @@ Description: This part is optional, but helpful for describing the Post Template
                   
                 </div>
                 </div>
-            </div>
-            
-        </div>
+                
+                
+                
+          
         
-        <ul id="nav-prodotto" class="clearfix">
+        <!--<ul id="nav-prodotto" class="clearfix">
         	
             <li><a rel="popup" href="<?php $image =  wp_get_attachment_image_src( get_post_thumbnail_id($post_id), 'full');  echo $image[0]?>" ><i class="fa fa-arrows-alt"></i> <?php echo __('Fullscreen', 'at-os'); ?></a></li>
             <li><a href=""></a></li>
         </ul>
+        -->
         
-        
-        <div id="scheda-acessori">
-        
+        <div id="scheda-accessori">
+			<h5><?php _e('Accessories', 'at-os'); ?></h5>
         	<?php
 			
 			
@@ -251,23 +275,19 @@ Description: This part is optional, but helpful for describing the Post Template
 				//print_r($query);
 				if ( $query->have_posts() ) {
 					
-					echo '<div class="jcarousel acessori"><ul>';
+					echo '<div class="owl-carousel accessori_list owl-theme">';
 					while ( $query->have_posts() ) {
 						$query->the_post();
 						
-					
-						echo '<li>';
+				
 						
 						echo get_the_post_thumbnail(get_the_ID(), 'thumbnail');
 						
 						
-						echo '</li>';
+						
 					}
-				echo '</ul>
+				echo '</div>'; ?>
 				
-				</div>'; ?>
-				<a href="#" class="jcarousel-control-prev" rel="tooltip" data-toggle="tooltip" data-placement="right" title="<?php echo __('Previus accessories', 'at-os'); ?>">&lsaquo;</a>
-                <a href="#" class="jcarousel-control-next" rel="tooltip" data-toggle="tooltip" data-placement="left" title="<?php echo __('Next accessories', 'at-os'); ?>">&rsaquo;</a>
 				<?php }
 				
 				wp_reset_postdata();
@@ -275,7 +295,10 @@ Description: This part is optional, but helpful for describing the Post Template
                     
         
         </div>
-        
+              
+            </div>
+            
+        </div>
 		<?php 
 		atos_get_tutti_i_dati ($post_id); 
 		

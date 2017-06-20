@@ -18,16 +18,19 @@ require_once( 'inc/images-functions.php' );
 require_once( 'inc/utility-functions.php' );
 require_once( 'inc/class-at-os-products.php' );
 
-require_once( 'inc/customizer/class-storefront-customizer.php' );
+//require_once( 'inc/customizer/class-storefront-customizer.php' );
 
 
 
 add_action("storefront_before_content", "slider_widget", 2, 69);
 
 function slider_widget (){
- 
-    echo do_shortcode("[metaslider id=1963]"); 
-
+ 	if (is_front_page() ){
+    	echo do_shortcode("[metaslider id=1963]"); 
+	}
+	if (is_page(20)){
+		echo do_shortcode("[metaslider id=2020]"); 
+	}
 }
 
 
@@ -73,7 +76,7 @@ function my_scripts_method() {
 		
 		wp_enqueue_script(
 			'jcarousel',
-			get_stylesheet_directory_uri() . '/assets/js/jquery.jcarousel.min.js',
+			get_stylesheet_directory_uri() . '/assets/js/owl.carousel.min.js',
 			array( 'jquery' )
 		);
 		wp_enqueue_script(
@@ -126,3 +129,41 @@ function my_scripts_method() {
 
 
 add_action( 'wp_enqueue_scripts', 'my_scripts_method' );
+
+
+
+
+function immagine_carosello ($post_id, $size = 'macchine-thumb'){
+	
+	
+	//return '$post_id da immagine carosello'. $post_id;
+	
+	
+	if(has_post_thumbnail($post_id)){
+		
+	return	get_the_post_thumbnail($post_id, $size);
+	
+	}else{
+	
+	return	wp_get_attachment_image( 382, $size);
+	}
+
+}
+
+add_action( 'init' , 					 'silvercare_register_ubermenu_skins', 9 );
+
+function silvercare_register_ubermenu_skins(){
+		//wp_die( get_stylesheet_directory_uri() . '/asset/sass/ubermenu/ubermenu.css');
+   if( function_exists( 'ubermenu_register_skin' ) ){
+      $skin_slug = 'atos-maintheme';       //replace with your skin slug
+      $skin_name = '[AT_OS] Main theme';   //Replace with the name of your skin (visible to users)
+      $skin_path = get_stylesheet_directory_uri() . '/asset/sass/ubermenu/ubermenu.css';  //Replace with path to the custom skin in your theme
+      ubermenu_register_skin( $skin_slug , $skin_name , $skin_path );
+   }
+}
+
+
+function register_my_menu() {
+  register_nav_menu('product-menu',__( 'Product Menu', 'at-os' ));
+}
+add_action( 'init', 'register_my_menu' );
