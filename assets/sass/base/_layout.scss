@@ -1,0 +1,133 @@
+
+
+@include susy-media($desktop) {
+	
+	/**
+	 * Primary Navigation
+	 */
+	.storefront-primary-navigation {
+		display: block;
+			
+			clear: none;
+			margin:0;
+			padding:0;
+		@include span(last 9 of 12);
+		margin-top: ms(3);
+		
+		.menu.nav-menu{
+			flat:right;
+		}
+		.menu.nav-menu > li{
+			float:left;
+		}
+		
+	}
+	
+	
+	
+	.site-header {
+		padding-top: 0;
+		padding-bottom: 0;
+		right:0;
+		left:0;
+		transition: all 0.4s ease;
+		
+		
+		
+		.col-full{
+			position:relative;
+		}
+		.site-branding {
+			display: block;
+			@include span(3 of 12);
+			clear: none;
+			margin-top: ms(1);
+			margin-bottom: ms(1);
+
+			img {
+				height: auto;
+				max-width: 100%;
+				max-height: none;
+			}
+		}
+		
+		
+	
+
+	
+	.breadcrumbs{
+		display: block;
+		@include span(full);
+		
+		.breadcrumbs-cat{
+			@include span(4 of 12);
+		}
+		
+		.breadcrumbs-label{
+			@include span(3 of 12);
+		}
+		.nav-pills{
+			@include span(last 5 of 12);
+		}
+	}
+	
+	.page{
+	
+		
+		
+		#page{
+		margin-top:10px;
+		max-width: 1440px;
+		margin-left: auto;
+		margin-right: auto;
+		background: #fff;
+	
+		}
+	}
+	#scheda-dettagli{
+		@include clearfix;
+	}
+	
+	#img-prodotto{
+		display: block;
+		@include span(4 of 12);
+		
+	}
+	#carosello-prodotti-wrap{
+		display: block;
+		@include span(2 of 12);
+		
+	}
+	#dati-prodotto{
+		display: block;
+		@include span(last 6 of 12);
+		
+	}
+	
+}
+
+@include susy-media (max-width $container-width) {
+
+}
+
+@include susy-media (max-width $handheld) {
+	
+	
+	
+	#img-prodotto{
+		display: block;
+		@include span(4 of 12);
+		
+	}
+	#carosello-prodotti-wrap{
+		display: block;
+		@include span(2 of 12);
+		
+	}
+	#dati-prodotto{
+		display: block;
+		@include span(last 6 of 12);
+		
+	}
+
+	}}
