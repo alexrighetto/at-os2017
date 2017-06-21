@@ -136,7 +136,7 @@ function atos_product_breadcrumbs ($post_id){
 	$axl_atos_aspirazione_armadi 				= get_post_meta( $post_id, 'axl_atos_aspirazione_armadi', 				true );
  
  	 ?>
- 	<section id="tutti_i_dati" class="clearfix">
+ 	<section id="tutti_i_dati">
  		 <h2> <?php echo __('Full features', 'at-os'); ?> </h2>
              
 						 <table class="product-info table">
@@ -405,7 +405,7 @@ function atos_get_caratterisitche ($post_id) {
 
  
   	?>
- 	<section id="caratteristiche" class="clearfix">
+ 	<section id="caratteristiche">
  		
             <?php 
 					$categories = get_the_terms($post_id, 'linea');

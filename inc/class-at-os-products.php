@@ -11,6 +11,7 @@ if ( ! class_exists( 'AT_OS_Products' ) ) {
 		
 		public function __construct() {
 			add_filter( 'template_include', array( $this, 'product_page_template' ), 99 );
+			add_shortcode( 	'button', array( $this,'atos_button_shortcode' ));
 		}
 		
 		public function product_page_template( $template ) {
@@ -60,6 +61,7 @@ if ( ! class_exists( 'AT_OS_Products' ) ) {
 			return $template;
 		}
 		
+		
 		function atos_get_cat($post_id, $taxonomy = 'categoria', $second_tax = 'categoria'){
 	 
 			$post_id = translated_id( $post_id, $taxonomy);
@@ -83,6 +85,40 @@ if ( ! class_exists( 'AT_OS_Products' ) ) {
 
 		 }
 	}
+	
+	function atos_button_shortcode( $atts, $content = null ) {
+	
+	// Extract shortcode attributes
+	extract( shortcode_atts( array(
+		'href'    => '',
+		'title'  => '',
+		'target' => '',
+		'text'   => '',
+		'color'  => 'green',
+	), $atts ) );
+	// Use text value for items without content
+	$content = $text ? $text : $content;
+	// Return button with link
+	if ( $href ) {
+		$link_attr = array(
+			'href'   => esc_url( $href ),
+			'title'  => esc_attr( $title ),
+			'target' => ( 'blank' == $target ) ? '_blank' : '',
+			'class'  => 'button color-' . esc_attr( $color ),
+		);
+		$link_attrs_str = '';
+		foreach ( $link_attr as $key => $val ) {
+			if ( $val ) {
+				$link_attrs_str .= ' '. $key .'="'. $val .'"';
+			}
+		}
+		return '<a'. $link_attrs_str .'><span>'. do_shortcode( $content ) .'</span></a>';
+	}
+	// No link defined so return button as a span
+	else {
+		return '<span class="button"><span>'. do_shortcode( $content ) .'</span></span>';
+	}
+}
 
 }
 
